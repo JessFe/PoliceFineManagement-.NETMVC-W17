@@ -1,0 +1,98 @@
+﻿@model GestioneContravvenzioni.Models.Verbale
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Nuovo verbale</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group my-3">
+        @Html.LabelFor(model => model.DataViolazione, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DataViolazione, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+            @Html.ValidationMessageFor(model => model.DataViolazione, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group my-3">
+        @Html.LabelFor(model => model.IndirizzoViolazione, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.IndirizzoViolazione, new { @class = "form-control", placeholder = "es. Viale Italia - Milano" })
+            @Html.ValidationMessageFor(model => model.IndirizzoViolazione, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group my-3">
+        @Html.LabelFor(model => model.Nominativo_Agente, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Nominativo_Agente, new { @class = "form-control", placeholder = "es. Agente 001" })
+            @Html.ValidationMessageFor(model => model.Nominativo_Agente, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group my-3">
+        @Html.LabelFor(model => model.Importo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Importo, new { @class = "form-control", placeholder = "es. 100" })
+            @Html.ValidationMessageFor(model => model.Importo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group my-3">
+        @Html.LabelFor(model => model.DecurtamentoPunti, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.DecurtamentoPunti, new { @class = "form-control", placeholder = "es. 1" })
+            @Html.ValidationMessageFor(model => model.DecurtamentoPunti, "", new { @class = "text-danger" })
+
+        </div>
+    </div>
+    
+    <div class="form-group my-3">
+        @Html.LabelFor(model => model.IDanagrafica_FK, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.IDanagrafica_FK, (IEnumerable<SelectListItem>)ViewBag.Anagrafiche, "Seleziona una persona", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IDanagrafica_FK, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group my-3">
+        @Html.LabelFor(model => model.IDviolazione_FK, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.IDviolazione_FK, (IEnumerable<SelectListItem>)ViewBag.TipiViolazione, "Seleziona un tipo di violazione", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.IDviolazione_FK, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+<div class="form-group my-3">
+    <div class="col-md-offset-2 col-md-10">
+        <button type="submit" class="btn btn-primary btn-custom">
+            <i class="bi bi-check-square"></i> Salva
+        </button>
+    </div>
+</div>
+</div>
+}
+
+<div>
+    <a href="@Url.Action("Index", "Verbali")" class="btn btn-primary btn-custom">
+        <i class="bi bi-arrow-left-square"></i>
+        Lista
+    </a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

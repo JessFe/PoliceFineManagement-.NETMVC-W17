@@ -1,0 +1,83 @@
+﻿@model IEnumerable<GestioneContravvenzioni.Models.Anagrafica>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="d-flex justify-content-between">
+    <h3 class="mb-0">Anagrafiche</h3>
+    <p class="m-0">
+        <a href="@Url.Action("Create", "Anagrafiche")" class="btn btn-primary btn-custom px-4">
+            <i class="bi bi-plus-square"></i>
+            Nuovo
+        </a>
+    </p>
+</div>
+
+<hr />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDanagrafica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cognome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Indirizzo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Citta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CAP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cod_Fisc)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDanagrafica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cognome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Indirizzo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Citta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CAP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cod_Fisc)
+            </td>
+            <td>
+                
+                <p class="m-0">
+                    <a href="@Url.Action("Edit", "Anagrafiche", new { id = item.IDanagrafica })" class="btn btn-secondary btn-custom px-4">
+                        <i class="bi bi-pencil-square"></i>
+                        
+                    </a>
+                </p>
+
+            </td>
+        </tr>
+    }
+
+    
+</table>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<GestioneContravvenzioni.Models.TipoViolazione>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="d-flex justify-content-between">
+    <h3 class="mb-0">Violazioni</h3>
+    <p class="m-0">
+        <a href="@Url.Action("Create", "Violazioni")" class="btn btn-primary btn-custom px-4">
+            <i class="bi bi-plus-square"></i>
+            Nuovo
+        </a>
+    </p>
+</div>
+
+<hr />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDviolazione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descrizione)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDviolazione)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descrizione)
+            </td>
+            <td>
+
+                <p class="m-0">
+                    <a href="@Url.Action("Edit", "Violazioni", new { id = item.IDviolazione })" class="btn btn-secondary btn-custom px-4">
+                        <i class="bi bi-pencil-square"></i>
+
+                    </a>
+                </p>
+
+            </td>
+        </tr>
+    }
+
+</table>

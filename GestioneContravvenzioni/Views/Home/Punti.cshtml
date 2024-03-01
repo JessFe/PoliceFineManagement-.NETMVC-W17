@@ -1,0 +1,55 @@
+﻿@model IEnumerable<GestioneContravvenzioni.Models.Anagrafica>
+
+@{
+    ViewBag.Title = "Punti";
+}
+
+<div class="d-flex justify-content-between">
+    <h3 class="mb-0">Punti decurtati <span class="fs-5 opacity-50">- per anagrafica</span></h3>
+    <p class="m-0">
+        <a href="@Url.Action("Index", "Home")" class="btn btn-primary btn-custom px-4">
+            <i class="bi bi-arrow-left-square"></i>
+            Indietro
+        </a>
+    </p>
+</div>
+
+<hr />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDanagrafica)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cognome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            Punti Decurtati
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDanagrafica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cognome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotVerbali)
+            </td>
+            
+        </tr>
+    }
+
+</table>

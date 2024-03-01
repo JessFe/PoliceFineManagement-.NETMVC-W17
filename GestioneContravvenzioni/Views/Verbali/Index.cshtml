@@ -1,0 +1,69 @@
+﻿@model IEnumerable<GestioneContravvenzioni.Models.Verbale>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="d-flex justify-content-between">
+    <h3 class="mb-0">Verbali</h3>
+    <p class="m-0">
+        <a href="@Url.Action("Create", "Verbali")" class="btn btn-primary btn-custom px-4">
+            <i class="bi bi-plus-square"></i>
+            Nuovo
+        </a>
+    </p>
+</div>
+
+<hr />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DataViolazione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataTrascrizioneVerbale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nominativo_Agente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescrizioneViolazione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Importo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DecurtamentoPunti)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.DataViolazione.ToString("dd/MM/yyyy")
+        </td>
+        <td>
+            @item.DataTrascrizioneVerbale.ToString("dd/MM/yyyy")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nominativo_Agente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescrizioneViolazione)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Importo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DecurtamentoPunti)
+        </td>
+        <td>
+            @* @Html.ActionLink("Edit", "Edit", new { id = item.IDverbale }) | *@
+
+        </td>
+    </tr>
+}
+
+</table>

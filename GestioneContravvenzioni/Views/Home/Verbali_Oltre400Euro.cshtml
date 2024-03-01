@@ -1,0 +1,67 @@
+﻿@model IEnumerable<GestioneContravvenzioni.Models.Verbale>
+
+@{
+    ViewBag.Title = "Verbali_Oltre400Euro";
+}
+
+<div class="d-flex justify-content-between">
+    <h3 class="mb-0">Violazioni oltre i 400 euro</h3>
+    <p class="m-0">
+        <a href="@Url.Action("Index", "Home")" class="btn btn-primary btn-custom px-4">
+            <i class="bi bi-arrow-left-square"></i>
+            Indietro
+        </a>
+    </p>
+</div>
+
+<hr />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IDverbale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cognome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataViolazione)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Importo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DecurtamentoPunti)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IDverbale)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cognome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @item.DataViolazione.ToString("dd/MM/yyyy")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Importo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DecurtamentoPunti)
+            </td>
+            
+        </tr>
+    }
+
+</table>

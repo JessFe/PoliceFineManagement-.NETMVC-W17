@@ -1,0 +1,47 @@
+﻿@model GestioneContravvenzioni.Models.TipoViolazione
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Nuova Violazione</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group my-3">
+        @Html.LabelFor(model => model.Descrizione, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Descrizione, new { @class = "form-control", placeholder = "es. Eccesso di velocità" })
+            @Html.ValidationMessageFor(model => model.Descrizione, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group my-3">
+        <div class="col-md-offset-2 col-md-10">
+            <button type="submit" class="btn btn-primary btn-custom">
+                <i class="bi bi-check-square"></i> Salva
+            </button>
+        </div>
+    </div>
+</div>
+}
+
+<div>
+
+    <a href="@Url.Action("Index", "Violazioni")" class="btn btn-primary btn-custom"">
+        <i class="bi bi-arrow-left-square"></i>
+        Lista
+    </a>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
