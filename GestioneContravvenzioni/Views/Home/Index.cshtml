@@ -7,11 +7,11 @@
 
     <div class="row">
         <div class="col-sm-3">
-            <div class="card h-100">
+            <div class="card text-center shadow rounded-4 h-100 pb-3 pt-4">
                 <div class="card-body">
                     <h5 class="card-title">Verbali</h5>
-                    <p class="card-text">@ViewBag.TotalVerbali</p>
-                    <a href="@Url.Action("Verbali", "Home")" class="btn btn-primary btn-custom">
+                    <p class="card-text fs-4 fw-bold text-customcolor opacity-75 mt-4">@ViewBag.TotalVerbali</p>
+                    <a href="@Url.Action("Verbali", "Home")" class="btn btn-primary btn-custom mt-4">
                         <i class="bi bi-arrow-right-square"></i>
                         Visualizza
                     </a>
@@ -19,11 +19,11 @@
             </div>
         </div>
         <div class="col-sm-3">
-            <div class="card h-100">
+            <div class="card text-center shadow rounded-4 h-100 pb-3 pt-4">
                 <div class="card-body">
                     <h5 class="card-title">Punti decurtati</h5>
-                    <p class="card-text">@ViewBag.TotalPuntiDecurtati</p>
-                    <a href="@Url.Action("Punti", "Home")" class="btn btn-primary btn-custom">
+                    <p class="card-text fs-4 fw-bold text-customcolor opacity-75 mt-4">@ViewBag.TotalPuntiDecurtati</p>
+                    <a href="@Url.Action("Punti", "Home")" class="btn btn-primary btn-custom mt-4">
                         <i class="bi bi-arrow-right-square"></i>
                         Visualizza
                     </a>
@@ -31,11 +31,11 @@
             </div>
         </div>
         <div class="col-sm-3">
-            <div class="card h-100">
+            <div class="card text-center shadow rounded-4 h-100 pb-3 pt-4">
                 <div class="card-body">
                     <h5 class="card-title">Violazioni >10 punti</h5>
-                    <p class="card-text">@ViewBag.VerbaliOltre10Punti</p>
-                    <a href="@Url.Action("Verbali_Oltre10Punti", "Home")" class="btn btn-primary btn-custom">
+                    <p class="card-text fs-4 fw-bold text-customcolor opacity-75 mt-4">@ViewBag.VerbaliOltre10Punti</p>
+                    <a href="@Url.Action("Verbali_Oltre10Punti", "Home")" class="btn btn-primary btn-custom mt-4">
                         <i class="bi bi-arrow-right-square"></i>
                         Visualizza
                     </a>
@@ -43,11 +43,11 @@
             </div>
         </div>
         <div class="col-sm-3">
-            <div class="card h-100">
+            <div class="card text-center shadow rounded-4 h-100 pb-3 pt-4">
                 <div class="card-body">
                     <h5 class="card-title">Violazioni >400 €</h5>
-                    <p class="card-text">@ViewBag.VerbaliOltre400Euro</p>
-                    <a href="@Url.Action("Verbali_Oltre400Euro", "Home")" class="btn btn-primary btn-custom">
+                    <p class="card-text fs-4 fw-bold text-customcolor opacity-75 mt-4">@ViewBag.VerbaliOltre400Euro</p>
+                    <a href="@Url.Action("Verbali_Oltre400Euro", "Home")" class="btn btn-primary btn-custom mt-4">
                         <i class="bi bi-arrow-right-square"></i>
                         Visualizza
                     </a>
